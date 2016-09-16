@@ -13,7 +13,9 @@
 ## Notes
 
 - The name of the tables will be the same as the name of the csv file.
-- The same data is a truncated `Sacramentorealestatetransactions.csv` from <https://support.spatialkey.com/spatialkey-sample-csv-data/>.
+- You can load more than one csv file, each will be loaded in to its own table.
+- The sample data is a truncated `Sacramentorealestatetransactions.csv` from <https://support.spatialkey.com/spatialkey-sample-csv-data/>.
+
 
 
 
