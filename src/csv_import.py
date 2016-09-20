@@ -9,11 +9,13 @@ import pandas
 import tabulate
 import openpyxl
 import slugify
+from sqlformatter import logdb
 
 
-logging.basicConfig(level='INFO')
+logging.basicConfig(level='INFO', format='%(message)s')
 LOGGER = logging.getLogger('csv_import')
-
+# Use our logger
+logdb.logger_name = LOGGER.name
 
 con = sqlite3.connect(':memory:')
 
@@ -104,11 +106,14 @@ def run_query(q):
     # Get the cursor, this will be used for running queries
     cur = con.cursor()
 
+    logdb()
+    LOGGER.info('Running query: {}'.format(q))
+    logdb()
+
     try:
         # Run the query
-        print '\n\nRunning query: {}'.format(q)
         cur = cur.execute(q)
-        print pp(cur)
+        LOGGER.info('\n' + pp(cur))
     except sqlite3.Error as e:
         if con:
             con.rollback()

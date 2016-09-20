@@ -1,0 +1,3 @@
+[submodule "lib/sqlformatter"]
+	path = lib/sqlformatter
+	url = https://github.com/yofreke/sqlformatter
